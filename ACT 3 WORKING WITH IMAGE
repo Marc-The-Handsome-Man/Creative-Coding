@@ -1,0 +1,17 @@
+var pic;
+
+function preload (){
+    pic = loadImage('arlecchino.jpg');
+
+}
+
+ function setup (){
+   createCanvas(700,700);
+   image(pic, 0, 0);
+   filter(ERODE);
+   
+   textSize(25);
+   textAlign(CENTER,CENTER);
+   text('Arlecchino', 130, 650);
+   
+ }
