@@ -1,0 +1,69 @@
+let xPos = 400;
+let yPos = 0;
+let speed = 2;
+let score = 0;
+let gameOver = false;
+
+function setup(){
+  createCanvas(800, 800);
+}
+
+function draw (){
+  background(220);
+
+  // screen for game over
+  if (gameOver){
+    background(0);
+    fill(255);
+    textAlign(CENTER);
+    textSize(60);
+    text("GAME OVER", width / 2, height / 2 - 50);
+    textSize(40);
+    text("Score: " + score, width / 2, height / 2 + 20);
+    textSize(20);
+    text("Click to restart", width / 2, height / 2 + 80);
+    return;
+  }
+
+  // ball
+  noStroke();
+  fill(0, 0, 255);
+  circle(xPos, yPos += speed, 100);
+
+  // miss then game over
+  if (yPos > height){
+    gameOver = true;
+  }
+
+  // for catching + speed after catch
+  if (dist(xPos, yPos, mouseX, 700) < 50){
+    yPos = 0;
+    xPos = random(width);
+    speed += 2;
+    score += 1;
+  }
+
+  // speed limit
+  speed = constrain(speed, 1, 10);
+
+  // display for score
+  fill(0);
+  textSize(40);
+  textAlign(LEFT);
+  text("Score: " + score, 50, 80);
+
+  // paddle (catcher)
+  rectMode(CENTER);
+  rect(mouseX, 700, 200, 50);
+}
+
+// restart for missing (click the screen)
+function mousePressed(){
+  if (gameOver){
+    gameOver = false;
+    score = 0;
+    speed = 2;
+    yPos = 0;
+    xPos = random(width);
+  }
+}
