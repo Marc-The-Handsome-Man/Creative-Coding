@@ -1,0 +1,15 @@
+function setup() {
+  createCanvas(600, 600);
+}
+
+function draw() {
+  background(220);
+  for(i = 0; i < 600; i += 20){
+    for(j = 0; j < 600; j +=20){
+      fill(i/2,mouseY,mouseX)
+      rect(i,j,15)
+    }
+  }
+}
+
+//i found this on youtube so i tried it out
