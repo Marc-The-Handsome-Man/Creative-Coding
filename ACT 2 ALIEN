@@ -1,0 +1,35 @@
+function setup() {
+    createCanvas(400, 400);
+    background(225);
+
+}
+
+function draw() {
+    noStroke();
+
+    // head 
+    fill(50, 160, 160);
+    circle(200, 200, 200, 200);
+
+    // eye out
+    fill(240, 235, 210);
+    circle(200, 200, 110, 110);
+
+    // eye in
+    fill(80, 50, 30);
+    circle(200, 200, 60, 60);
+
+    // eye highlight
+    fill(255);
+    circle(215, 185, 15, 15);
+
+    // mouth 
+    fill(80, 50, 30);
+    rect(180, 250, 40, 5);
+  
+    // antennas
+    fill(50, 160, 160);
+    circle(140, 90, 30, 30);
+    circle(260, 90, 30, 30);
+
+}
