@@ -1,0 +1,14 @@
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+  
+  for(i = 0; i <20; i++){
+  fill(i*15, 100-i,i*3)
+  ellipse(i*20,i*20,i*3)
+  }
+}
+
+// found this on yt
