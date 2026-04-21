@@ -1,0 +1,25 @@
+var ali = " world";
+var font2
+var word = "hello world";
+var font1;
+function preload()
+{
+    font1 = loadFont("BlackOpsOne-Regular.ttf");
+    font2 = loadFont("Another_.ttf");
+}
+
+
+
+function setup(){
+    createCanvas(600, 400);
+    background(0);
+    fill(250,255,50);
+    textFont(font1, 100);
+    textAlign(CENTER);
+    text(word, 300, 200);
+    text(ali,200,100)
+   textFont(font2, 100);
+  
+}
+
+
