@@ -1,0 +1,51 @@
+let pic;
+
+function preload() {
+  pic = loadImage('arlecchino.jpg');
+}
+
+function setup() {
+  createCanvas(700, 700);
+  background(240);
+
+  // resize image
+  pic.resize(400, 0);
+}
+
+function draw() {
+  // watercolor circles
+  let x = random(width);
+  let y = random(height);
+  let r = random(20, 80);
+
+  fill(random(255), random(255), random(255), 50);
+  noStroke();
+  ellipse(x, y, r, r);
+
+  // clipped circle area
+  push(); // save the current drawing settings
+  clip(maskShape);
+
+  fill(100, 150, 255, 80);
+  rect(100, 100, 400, 400);
+
+  pop(); // restore that snapshot
+
+  // image 
+  let imgX = (width - pic.width) / 2;
+  let imgY = (height - pic.height) / 2;
+
+  image(pic, imgX, imgY);
+  filter(ERODE);
+
+  // text
+  fill(0);
+  textSize(25);
+  textAlign(CENTER, CENTER);
+  text('Arlecchino', width / 2, height - 50);
+}
+
+// Mask function (It draws an invisible circle shape used as a boundary.) 
+function maskShape() {
+  circle(350, 350, 200);
+}
